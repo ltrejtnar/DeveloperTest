@@ -15,10 +15,11 @@ public class Main {
     
     public static void main(String[] args) {
 l.load(ds);
+ds.sortByValues();
         for (DataItem arg : ds.getList()) {
             System.out.println(arg);
         }
-        System.out.println(ds.getShareQuater("asus", Quater.Q3));
+        System.out.println(ds.getRows("asus"));
     }
  
 }

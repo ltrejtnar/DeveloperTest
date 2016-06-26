@@ -6,6 +6,8 @@
 package test;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  *
@@ -32,12 +34,67 @@ public class DataSet {
     private void sumUnitsQuater(Quater q) {
         double count = 0;
         for (DataItem dataItem : list) {
-                       if (dataItem.getQuater().equals(q)) {
+            if (dataItem.getQuater().equals(q)) {
                 count = count + dataItem.getUnits();
             }
 
         }
         sumUnitsQuater = count;
+    }
+
+    public String getRows(String vendor) {
+        String s = "";
+        int row = 1;
+        for (DataItem dataItem : list) {
+            if (dataItem.getVendor().toLowerCase().equals(vendor.toLowerCase())) {
+
+                s = s + row + ",";
+            }
+            row++;
+        }
+        return s;
+    }
+
+    public void sortAlpha() {
+        Collections.sort(list, new Comparator<DataItem>() {
+            @Override
+            public int compare(DataItem i2, DataItem i1) {
+                return i2.getVendor().toLowerCase().compareTo(i1.getVendor().toLowerCase());
+
+            }
+        });
+
+    }
+    
+    public void sortByValues() {
+        Collections.sort(list, new Comparator<DataItem>() {
+            @Override
+            public int compare(DataItem i2, DataItem i1) {
+                return Double.compare(i2.getUnits(), i1.getUnits());
+
+            }
+        });
+
+    }
+
+    public void sortAlpha(ArrayList<DataItem> i) {
+        Collections.sort(i, new Comparator<DataItem>() {
+            @Override
+            public int compare(DataItem i2, DataItem i1) {
+                return i2.getVendor().toLowerCase().compareTo(i1.getVendor().toLowerCase());
+
+            }
+        });
+    }
+
+    public ArrayList<DataItem> tableOfQuater(Quater q) {
+        ArrayList<DataItem> listOfQuater = new ArrayList<>();
+        for (DataItem dataItem : list) {
+            if (dataItem.getQuater().equals(q)) {
+                listOfQuater.add(dataItem);
+            }
+        }
+        return listOfQuater;
     }
 
     public double getShare(String Vendor) {
@@ -49,7 +106,6 @@ public class DataSet {
             }
         }
         return num / sumUnits * 100;
-
     }
 
     public double getShareQuater(String Vendor, Quater q) {
