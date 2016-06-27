@@ -21,13 +21,9 @@ public class Main {
         int year = 2010;
         String vendor = "acer";
 
-        //l.loadAll(ds);
-        
-        
-               
+    
         l.load(ds, year, q, country);
          System.out.println("Data about " + vendor + " units are on the line " + ds.getRow(vendor));
-
 
 
         // ds.sortAlpha();

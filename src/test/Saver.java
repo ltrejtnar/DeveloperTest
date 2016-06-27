@@ -59,6 +59,13 @@ public class Saver {
         }
     }
     
+    public void witeToSCV(){
+        /*
+        *To do code. To write each DataItem in DataSet, just change path to .csv, declare csv separator, toString in DataItem could be also used to define format of each DataItem
+        *
+        */
+    }
+    
     public String getPath() {
         return path;
     }
