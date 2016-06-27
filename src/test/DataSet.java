@@ -1,11 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Class for representation sets of Vendors
  */
 package test;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -19,11 +16,13 @@ public class DataSet {
     private ArrayList<DataItem> list;
     private double sumUnits;
 
-
     public DataSet() {
         list = new ArrayList<>();
     }
 
+    /*
+ * Count sum of units in dataset
+     */
     private void sumUnits() {
         double count = 0;
         for (DataItem dataItem : list) {
@@ -32,6 +31,9 @@ public class DataSet {
         sumUnits = count;
     }
 
+    /*
+ * return row number for data on vendor, exclude head of table
+     */
     public int getRow(String vendor) {
 
         int row = 1;
@@ -45,6 +47,9 @@ public class DataSet {
         return row;
     }
 
+    /*
+ * Sort the rows alphabetically (by vendor)
+     */
     public void sortAlpha() {
         Collections.sort(list, new Comparator<DataItem>() {
             @Override
@@ -56,6 +61,9 @@ public class DataSet {
 
     }
 
+    /*
+ * Sort the rows by unit values.
+     */
     public void sortByValues() {
         Collections.sort(list, new Comparator<DataItem>() {
             @Override
@@ -67,6 +75,9 @@ public class DataSet {
 
     }
 
+    /*
+ * return array of shade for Vendor, first value is in units, second one gives percentage share
+     */
     public double[] getShare(String Vendor) {
         double[] num = new double[2];
         sumUnits();
@@ -102,7 +113,5 @@ public class DataSet {
     public void setSumUnits(double sumUnits) {
         this.sumUnits = sumUnits;
     }
-    
-    
 
 }

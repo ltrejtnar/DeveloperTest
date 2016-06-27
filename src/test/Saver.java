@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Class for writing dataset to file - html or csv
  */
 package test;
 
@@ -17,14 +15,18 @@ import java.util.logging.Logger;
  */
 public class Saver {
 
-    private String path;
+    private String path;                                                        //output path a file name
     private FileWriter fWriter;
     private BufferedWriter writer;
 
     public Saver(String path) {
         this.path = path;
     }
-
+    
+    
+/*
+ * Write html head, parameters charset and title of html web page
+ */
     private String writeHead(String charset,String title) {
         return "<html>\n"
                 + "    <head>\n"
@@ -33,7 +35,11 @@ public class Saver {
                 + "        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
                 + "    </head>\n";
     }
-
+    
+    
+/*
+ * Write items in dataset to html table, parameter table - title of table
+ */
     public void writeHTML(DataSet ds, String table) {
 
         try {

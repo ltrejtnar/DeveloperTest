@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Class for reading csv file
  */
 package test;
 
@@ -18,9 +16,9 @@ import java.util.logging.Logger;
  */
 public class Loader {
 
-    private String path;
+    private String path;                                                        //input path and file name
     private CSVReader reader;
-    private final char CSVSPLIT = ',';
+    private final char CSVSPLIT = ',';                                          //splitting character in input csv
 
     public Loader(String path) {
 
@@ -28,7 +26,9 @@ public class Loader {
 
     }
 
-   
+   /*
+ * Load data for specified year, quater and country
+ */
     public void load(DataSet s, int year, Quater q, String country) {
         DataItem i;
         String[] lineArray;
