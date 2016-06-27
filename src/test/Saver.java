@@ -44,9 +44,12 @@ public class Saver {
             writer.newLine();
             writer.write("<table border=\"1\">");
             writer.write("<caption>"+table+"</caption>");
+            writer.newLine();
             writer.write("<tr><td><b>Vendor</b></td><td><b>Units</b></td><td><b>Share</b></td></tr>");
+            writer.newLine();
             for (DataItem di : ds.getList()) {
                 writer.write("<tr><td>"+di.getVendor()+"</td><td>"+di.getUnits()+"</td><td>"+ds.getShare(di.getVendor())[1]+"%</td></tr>");
+                writer.newLine();
             }
              writer.write("<tr><td><b>Total</b></td><td><b>"+ds.getSumUnits()+"</b></td><td><b>100%</b></td></tr>");
             writer.write("</table>");
