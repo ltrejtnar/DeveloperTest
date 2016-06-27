@@ -7,19 +7,35 @@ package test;
 
 /**
  *
- * @author Nudista
+ * @author Ladislav Trejtnar
  */
 public class Main {
-   static Loader l = new Loader("data.csv");
-   static DataSet ds = new DataSet();
-    
+
+    static Loader l = new Loader("data.csv");
+    static Saver s = new Saver("table.html");
+    static DataSet ds = new DataSet();
+
     public static void main(String[] args) {
-l.load(ds);
-ds.sortByValues();
-        for (DataItem arg : ds.getList()) {
-            System.out.println(arg);
-        }
-        System.out.println(ds.getRows("asus"));
+        String country = "Czech Republic";
+        Quater q = Quater.Q3;
+        int year = 2010;
+        String vendor = "acer";
+
+        //l.loadAll(ds);
+        
+        
+               
+        l.load(ds, year, q, country);
+         System.out.println("Data about " + vendor + " units are on the line " + ds.getRow(vendor));
+
+
+
+        // ds.sortAlpha();
+        // ds.sortByValues();
+        
+        System.out.println(ds.getShare(vendor)[0] + " units, " + ds.getShare(vendor)[1] + " percent for " + vendor);
+
+        s.writeHTML(ds, country + " " + q.toString());
     }
- 
+
 }

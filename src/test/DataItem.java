@@ -7,7 +7,7 @@ package test;
 
 /**
  *
- * @author Nudista
+ * @author Ladislav Trejtnar
  */
 public class DataItem {
  private String country;
